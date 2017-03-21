@@ -106,21 +106,26 @@ public class ProxyResource {
     // Configure the Watson Developer Cloud SDK to make a call to the
     // appropriate conversation service.
 
-    ConversationService service =
-        new ConversationService(API_VERSION != null ? API_VERSION : ConversationService.VERSION_DATE_2016_09_20);
-    if ((username != null) || (password != null)) {
-      service.setUsernameAndPassword(username, password);
-    }
-
-    service.setEndPoint(url == null ? Constants.CONVERSATION_URL : url);
-
-    // Use the previously configured service object to make a call to the
-    // conversational service
     logger.info("Before Execute");
     logger.info("UserName:"+username);
     logger.info("Password:"+password);
     logger.info("MessageRequest"+request);
     logger.info("ID:"+id);
+
+
+    ConversationService service =
+        new ConversationService(API_VERSION != null ? API_VERSION : ConversationService.VERSION_DATE_2016_09_20);
+    if ((username != null) || (password != null)) {
+    	logger.info("BOTH USERNAME AND PASSWORD ARE NOT NULL");
+      service.setUsernameAndPassword(username, password);
+    }
+
+    service.setEndPoint(url == null ? Constants.CONVERSATION_URL : url);
+	
+	logger.info("ENDPOINTURL:"+url);
+
+    // Use the previously configured service object to make a call to the
+    // conversational service
     MessageResponse response = service.message(id, request).execute();
     logger.info("After Execute");
 
