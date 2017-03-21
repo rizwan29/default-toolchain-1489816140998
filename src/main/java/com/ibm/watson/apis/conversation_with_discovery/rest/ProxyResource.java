@@ -117,6 +117,10 @@ public class ProxyResource {
     // Use the previously configured service object to make a call to the
     // conversational service
     logger.info("Before Execute");
+    logger.info("UserName:"+username);
+    logger.info("Password:"+password);
+    logger.info("MessageRequest"+request);
+    logger.info("ID:"+id);
     MessageResponse response = service.message(id, request).execute();
     logger.info("After Execute");
 
