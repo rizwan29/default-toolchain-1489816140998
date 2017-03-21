@@ -119,7 +119,8 @@ public class ProxyResource {
     	logger.info("BOTH USERNAME AND PASSWORD ARE NOT NULL");
       service.setUsernameAndPassword(username, password);
     }
-
+	//url = "https://gateway.watsonplatform.net/conversation/api/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message/";
+	url = "https://default-toolchain-1489816140998.mybluemix.net/rest/conversation/api/v1/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message";
     service.setEndPoint(url == null ? Constants.CONVERSATION_URL : url);
 	
 	logger.info("ENDPOINTURL:"+url);
