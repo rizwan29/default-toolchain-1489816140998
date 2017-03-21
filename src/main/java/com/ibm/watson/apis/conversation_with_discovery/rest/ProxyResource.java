@@ -49,7 +49,7 @@ import com.ibm.watson.developer_cloud.util.GsonSingleton;
  */
 @Path("conversation/api/v1/workspaces")
 public class ProxyResource {
-  private static String API_VERSION;
+  private static String API_VERSION="2017-02-03";
   private static final String ERROR = "error";
   private static final Logger logger = LogManager.getLogger(ProxyResource.class.getName());
   
@@ -111,7 +111,7 @@ public class ProxyResource {
     logger.info("Password:"+password);
     logger.info("MessageRequest"+request);
     logger.info("ID:"+id);
-
+logger.info("API_VERSION:"+ API_VERSION);
 
     ConversationService service =
         new ConversationService(API_VERSION != null ? API_VERSION : ConversationService.VERSION_DATE_2016_09_20);
