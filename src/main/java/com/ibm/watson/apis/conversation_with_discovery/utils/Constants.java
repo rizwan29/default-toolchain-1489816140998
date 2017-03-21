@@ -78,5 +78,8 @@ public class Constants {
 
   /** The Constant WORKSPACE_ID. */
   public static final String WORKSPACE_ID = "WORKSPACE_ID";
+  
+  
+  public static final String url = "https://gateway.watsonplatform.net/conversation/api/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message/";
 
 }

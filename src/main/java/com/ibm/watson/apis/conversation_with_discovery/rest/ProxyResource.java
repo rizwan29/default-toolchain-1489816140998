@@ -121,7 +121,8 @@ public class ProxyResource {
     }
 	//url = "https://gateway.watsonplatform.net/conversation/api/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message/";
 	//url = "https://default-toolchain-1489816140998.mybluemix.net/rest/conversation/api/v1/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message";
-    service.setEndPoint(url == null ? Constants.CONVERSATION_URL : url);
+    //service.setEndPoint(url == null ? Constants.CONVERSATION_URL : url);
+	service.setEndPoint(Constants.url);
 	
 	logger.info("ENDPOINTURL:"+url);
 
@@ -230,6 +231,7 @@ public class ProxyResource {
    * @param url the url
    */
   public void setCredentials(String username, String password, String url) {
+  	logger.info("URL in setCredentials:"+url);
     this.username = username;
     this.password = password;
     this.url = url;
