@@ -119,7 +119,7 @@ logger.info("API_VERSION:"+ API_VERSION);
     	logger.info("BOTH USERNAME AND PASSWORD ARE NOT NULL");
       service.setUsernameAndPassword(username, password);
     }
-	//url = "https://gateway.watsonplatform.net/conversation/api/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message/";
+	url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message?version=2017-02-03";
 	//url = "https://default-toolchain-1489816140998.mybluemix.net/rest/conversation/api/v1/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message";
     service.setEndPoint(url == null ? Constants.CONVERSATION_URL : url);
 	//service.setEndPoint(Constants.CONVERSATION_URL);
