@@ -49,7 +49,7 @@ import com.ibm.watson.developer_cloud.util.GsonSingleton;
  */
 @Path("conversation/api/v1/workspaces")
 public class ProxyResource {
-  private static String API_VERSION="2017-02-03";
+  private static String API_VERSION;
   private static final String ERROR = "error";
   private static final Logger logger = LogManager.getLogger(ProxyResource.class.getName());
   
@@ -114,15 +114,15 @@ public class ProxyResource {
 logger.info("API_VERSION:"+ API_VERSION);
 
     ConversationService service =
-        new ConversationService(API_VERSION != null ? API_VERSION : ConversationService.VERSION_DATE_2016_09_20);
+        new ConversationService(API_VERSION != null ? API_VERSION : ConversationService.VERSION_DATE_2017_02_03);
     if ((username != null) || (password != null)) {
     	logger.info("BOTH USERNAME AND PASSWORD ARE NOT NULL");
       service.setUsernameAndPassword(username, password);
     }
-	url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message?version=2017-02-03";
+	//url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message?version=2017-02-03";
 	//url = "https://default-toolchain-1489816140998.mybluemix.net/rest/conversation/api/v1/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message";
-    service.setEndPoint(url == null ? Constants.CONVERSATION_URL : url);
-	//service.setEndPoint(Constants.CONVERSATION_URL);
+    //service.setEndPoint(url == null ? Constants.CONVERSATION_URL : url);
+	service.setEndPoint(Constants.CONVERSATION_URL);
 	
 	logger.info("ENDPOINTURL:"+url);
 
