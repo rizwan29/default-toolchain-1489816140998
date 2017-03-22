@@ -106,32 +106,17 @@ public class ProxyResource {
     // Configure the Watson Developer Cloud SDK to make a call to the
     // appropriate conversation service.
 
-    logger.info("Before Execute");
-    logger.info("UserName:"+username);
-    logger.info("Password:"+password);
-    logger.info("MessageRequest"+request);
-    logger.info("ID:"+id);
-logger.info("API_VERSION:"+ API_VERSION);
-
-    //ConversationService service = new ConversationService(API_VERSION != null ? API_VERSION : ConversationService.VERSION_DATE_2017_02_03);
-    
-    ConversationService service = new ConversationService("2017-02-03");
-    
+    ConversationService service =
+        new ConversationService(API_VERSION != null ? API_VERSION : ConversationService.VERSION_DATE_2017_02_03);
     if ((username != null) || (password != null)) {
-    	logger.info("BOTH USERNAME AND PASSWORD ARE NOT NULL");
       service.setUsernameAndPassword(username, password);
     }
-	//url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message?version=2017-02-03";
-	//url = "https://default-toolchain-1489816140998.mybluemix.net/rest/conversation/api/v1/workspaces/ac463b80-1b60-4557-a063-8570e4daa6e4/message";
-    //service.setEndPoint(url == null ? Constants.CONVERSATION_URL : url);
-	service.setEndPoint(Constants.CONVERSATION_URL);
-	
-	logger.info("ENDPOINTURL:"+url);
+
+    service.setEndPoint(url == null ? Constants.CONVERSATION_URL : url);
 
     // Use the previously configured service object to make a call to the
     // conversational service
     MessageResponse response = service.message(id, request).execute();
-    logger.info("After Execute");
 
     // Determine if conversation's response is sufficient to answer the
     // user's question or if we
@@ -233,7 +218,6 @@ logger.info("API_VERSION:"+ API_VERSION);
    * @param url the url
    */
   public void setCredentials(String username, String password, String url) {
-  	logger.info("URL in setCredentials:"+url);
     this.username = username;
     this.password = password;
     this.url = url;
