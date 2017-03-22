@@ -5,3 +5,5 @@ applications:
   - conversation-service
   path: build/libs/conversation-with-discovery-0.1-SNAPSHOT.war
   memory: 512M
+  env: 
+   JVM: openjdk
