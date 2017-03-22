@@ -113,8 +113,10 @@ public class ProxyResource {
     logger.info("ID:"+id);
 logger.info("API_VERSION:"+ API_VERSION);
 
-    ConversationService service =
-        new ConversationService(API_VERSION != null ? API_VERSION : ConversationService.VERSION_DATE_2017_02_03);
+    //ConversationService service = new ConversationService(API_VERSION != null ? API_VERSION : ConversationService.VERSION_DATE_2017_02_03);
+    
+    ConversationService service = new ConversationService("2017-02-03");
+    
     if ((username != null) || (password != null)) {
     	logger.info("BOTH USERNAME AND PASSWORD ARE NOT NULL");
       service.setUsernameAndPassword(username, password);
