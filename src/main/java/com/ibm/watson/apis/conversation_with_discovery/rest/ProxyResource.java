@@ -57,7 +57,7 @@ public class ProxyResource {
   
   private String password = System.getenv("CONVERSATION_PASSWORD");
   
-  private String url = System.getenv("ENDPOINT_URL");
+  private String url;
   
   private String username = System.getenv("CONVERSATION_USERNAME");
 
